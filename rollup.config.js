@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "rollup-plugin-typescript2"
 import postcss from "rollup-plugin-postcss"
+import url from "@rollup/plugin-url"
 
 const packageJson = require("./package.json")
 
@@ -21,6 +22,11 @@ export default {
     },
   ],
   plugins: [
+    url({
+      include: ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.svg"],
+      limit: Infinity,
+      fileName: "[dirname][name][extname]",
+    }),
     peerDepsExternal(),
     resolve(),
     commonjs(),

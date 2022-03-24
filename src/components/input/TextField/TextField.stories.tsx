@@ -4,7 +4,7 @@ import { Story } from "@storybook/react"
 import TextField, { TextFieldProps } from "./TextField"
 
 export default {
-  title: "Components/TextField",
+  title: "Components/Input/TextField",
   component: TextField,
 } as Meta
 
