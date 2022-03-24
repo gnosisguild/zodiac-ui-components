@@ -2,6 +2,19 @@ import { createTheme } from "@material-ui/core"
 import MUIShadows from "@material-ui/core/styles/shadows"
 import createPalette from "@material-ui/core/styles/createPalette"
 
+import avertaFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-normal.woff2"
+import avertaBoldFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-bold.woff2"
+
+import MonacoFont from "../assets/fonts/Monaco.woff"
+
+import RobotoMonoRegularWoff from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff2"
+import RobotoMonoRegularWoff2 from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff"
+
+import SpectralRegularWoff from "../assets/fonts/Spectral/spectral-v7-latin-regular.woff"
+import SpectralRegularWoff2 from "../assets/fonts/Spectral/spectral-v7-latin-regular.woff2"
+
+import ZodiacBackground from "../assets/images/zodiac-bg.svg"
+
 const palette = createPalette({
   type: "dark",
   background: {
@@ -19,6 +32,23 @@ palette.primary = palette.augmentColor({
 palette.secondary = palette.augmentColor({
   "500": "rgb(34, 50, 101)",
 })
+
+const averta = {
+  fontFamily: 'Averta',
+  src: `local('Averta'), local('Averta Bold'), url(${avertaFont}) format('woff2'), url(${avertaBoldFont}) format('woff')`,
+};
+const roboto = {
+  fontFamily: 'Roboto Mono',
+  fontStyle: "normal",
+  fontWeight: 400,
+  src: `local(''), url(${RobotoMonoRegularWoff2}) format('woff2'), url(${RobotoMonoRegularWoff}) format('woff')`,
+};
+const spectral = {
+  fontFamily: 'Spectral',
+  fontStyle: "normal",
+  fontWeight: 400,
+  src: `local(''), url(${SpectralRegularWoff2}) format('woff2'), url(${SpectralRegularWoff}) format('woff')`,
+}
 
 const shadows = MUIShadows
 shadows[1] = "0px 2px 4px rgba(105, 112, 117, 0.2)"
@@ -75,9 +105,53 @@ const zodiacTheme = createTheme({
     },
     MuiCssBaseline: {
       "@global": {
+        ":root": {
+          "--scrollbarWidth": 6,
+        },
+        "@font-face": [averta, roboto, spectral],
+        "html": {
+          height: "100%"
+        },
         body: {
-          background:
-            "linear-gradient(108.86deg, rgba(26, 33, 66, 1) 6.24%, rgba(12, 19, 8, 1) 53.08%, rgba(37, 6, 4, 1) 96.54%);",
+          margin: 0,
+          padding: 0,
+          background: `url(${ZodiacBackground}) 0 0% / cover fixed`,
+          "&:before": {
+            content: `""`,
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(108.86deg,
+              rgba(26, 33, 66, 0.85) 6.24%,
+              rgba(12, 19, 8, 0.85) 53.08%,
+              rgba(37, 6, 4, 0.85) 96.54%)`,
+            zIndex: 0,
+          },
+        },
+        a: {
+          cursor: "pointer",
+          textDecoration: "none",
+        },
+        /* Works on Firefox*/
+        "*": {
+          scrollbarWidth: "thin",
+          scrollbarColor: `rgba(217, 212, 173, 0.6) rgba(217, 212, 173, 0.1)`,
+        },
+        /* Works on Chrome, Edge, and Safari */
+        "*::-webkit-scrollbar": {
+          width: `var(--scrollbarWidth)`,
+        },
+        "*::-webkit-scrollbar-track": {
+          background: "none",
+        },
+        "*::-webkit-scrollbar-thumb": {
+          backgroundColor: `rgba(217, 212, 173, 0.3)`,
+          borderRadius: 0,
+        },
+        ".MuiFormControl-root, .MuiInputBase-root": {
+          width: "100%",
+        },
+        "aside.bn-onboard-custom": {
+          zIndex: 2,
         },
       },
     },

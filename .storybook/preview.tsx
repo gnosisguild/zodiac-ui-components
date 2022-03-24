@@ -3,13 +3,12 @@ import React from "react"
 import { addDecorator } from "@storybook/react"
 import { ThemeProvider } from "styled-components"
 import { CssBaseline, ThemeProvider as MUIThemeProvider } from "@material-ui/core"
-import { TextField, zodiacMuiTheme, ZodiacStyle, gnosisStyledComponentsTheme } from "../src/index"
+import { zodiacMuiTheme ,gnosisStyledComponentsTheme } from "../src/index"
 
 addDecorator((story) => (
   <MUIThemeProvider theme={zodiacMuiTheme}>
     <ThemeProvider theme={gnosisStyledComponentsTheme}>
       <CssBaseline />
-      <ZodiacStyle />
       {story()}
     </ThemeProvider>
   </MUIThemeProvider>
