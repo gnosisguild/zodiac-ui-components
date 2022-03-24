@@ -5,7 +5,6 @@ import Button, { ButtonProps } from "./Button"
 import { CircularProgress } from "@material-ui/core"
 import { Add, ArrowForward } from '@material-ui/icons'
 
-
 export default {
   title: "Components/Button",
   component: Button,

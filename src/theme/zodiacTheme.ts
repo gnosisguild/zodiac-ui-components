@@ -5,8 +5,6 @@ import createPalette from "@material-ui/core/styles/createPalette"
 import avertaFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-normal.woff2"
 import avertaBoldFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-bold.woff2"
 
-import MonacoFont from "../assets/fonts/Monaco.woff"
-
 import RobotoMonoRegularWoff from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff2"
 import RobotoMonoRegularWoff2 from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff"
 
@@ -15,22 +13,41 @@ import SpectralRegularWoff2 from "../assets/fonts/Spectral/spectral-v7-latin-reg
 
 import ZodiacBackground from "../assets/images/zodiac-bg.svg"
 
+const colors = {
+  tan: {
+    100: "rgba(217, 212, 173, 0.1)",
+    300: "rgba(217, 212, 173, 0.3)",
+    600: "rgba(217, 212, 173, 0.3)",
+    1000: "rgba(217, 212, 173, 1)",
+  },
+  sepia: {
+    100: "rgba(224, 197, 173, 0.1)",
+    1000: "rgba(224, 197, 173, 1)",
+  },
+  blue: {
+    500: "rgba(34, 50, 101, 1)",
+  },
+  gray: {
+    200: "rgba(105, 112, 117, 0.2)",
+  }
+}
+
 const palette = createPalette({
   type: "dark",
   background: {
-    default: "rgba(224, 197, 173, 0.1)",
-    paper: "rgba(217, 212, 173, 0.1)",
+    default: colors.sepia[100],
+    paper: colors.tan[100],
   },
   text: {
-    secondary: "rgba(217, 212, 173, 1)",
+    secondary: colors.tan[1000],
   },
 })
 
 palette.primary = palette.augmentColor({
-  "500": "#30312C",
+  500: "#30312C",
 })
 palette.secondary = palette.augmentColor({
-  "500": "rgb(34, 50, 101)",
+  500: colors.blue[500],
 })
 
 const averta = {
@@ -88,7 +105,7 @@ const zodiacTheme = createTheme({
       root: {
         borderRadius: "0 !important",
         border: "1px solid",
-        borderColor: "rgba(217, 212, 173, 0.3)",
+        borderColor: colors.tan[300],
         position: "relative",
         "&::before": {
           content: '" "',
@@ -98,7 +115,7 @@ const zodiacTheme = createTheme({
           left: "2px",
           right: "2px",
           bottom: "2px",
-          border: "1px solid rgba(217, 212, 173, 0.3)",
+          border: `1px solid ${colors.tan[100]}`,
           pointerEvents: "none",
         },
       },
@@ -134,7 +151,7 @@ const zodiacTheme = createTheme({
         /* Works on Firefox*/
         "*": {
           scrollbarWidth: "thin",
-          scrollbarColor: `rgba(217, 212, 173, 0.6) rgba(217, 212, 173, 0.1)`,
+          scrollbarColor: `${colors.tan[600]} ${colors.tan[100]}`,
         },
         /* Works on Chrome, Edge, and Safari */
         "*::-webkit-scrollbar": {
@@ -144,7 +161,7 @@ const zodiacTheme = createTheme({
           background: "none",
         },
         "*::-webkit-scrollbar-thumb": {
-          backgroundColor: `rgba(217, 212, 173, 0.3)`,
+          backgroundColor: colors.tan[100],
           borderRadius: 0,
         },
         ".MuiFormControl-root, .MuiInputBase-root": {
@@ -162,8 +179,8 @@ const zodiacTheme = createTheme({
       root: {
         padding: "4px 8px",
         height: "auto",
-        backgroundColor: "rgba(217, 212, 173, 0.1)",
-        border: "1px solid rgba(217, 212, 173, 0.3)",
+        backgroundColor: colors.tan[100],
+        border: `1px solid ${colors.tan[300]}`,
       },
       avatar: {
         display: "contents !important",
@@ -188,7 +205,7 @@ const zodiacTheme = createTheme({
           left: -4,
           right: -4,
           bottom: -4,
-          border: "1px solid rgba(217, 212, 173, 0.3)",
+          border: `1px solid ${colors.tan[300]}`,
           pointerEvents: "none",
         },
         "&:hover": {
@@ -197,17 +214,17 @@ const zodiacTheme = createTheme({
       },
       contained: {
         boxShadow: "none",
-        border: "1px solid rgba(217, 212, 173, 0.3)",
+        border: `1px solid ${colors.tan[300]}`,
       },
       containedSizeSmall: {
         padding: "4px 8px",
       },
       outlinedSecondary: {
-        border: "1px solid rgba(217, 212, 173, 0.3)",
+        border: `1px solid ${colors.tan[300]}`,
         color: "#fff",
         "&:hover": {
-          backgroundColor: "1px solid rgba(217, 212, 173, 0.3)",
-          border: "1px solid rgba(217, 212, 173, 0.3)",
+          backgroundColor: `1px solid ${colors.tan[300]}`,
+          border: `1px solid ${colors.tan[300]}`,
         },
       },
     },
@@ -222,7 +239,7 @@ const zodiacTheme = createTheme({
     MuiInputBase: {
       root: {
         borderRadius: 0,
-        border: "1px solid rgba(217, 212, 173, 0.3)",
+        border: `1px solid ${colors.tan[300]}`,
         padding: "8px 4px",
         position: "relative",
       },
