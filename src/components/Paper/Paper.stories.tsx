@@ -13,7 +13,7 @@ export default {
   }
 } as Meta
 
-// Create a master template for mapping args to render the Button component
+// Create a master template for mapping args to render the Paper component
 const Template: Story<PaperProps> = (args) => <Paper {...args} />
 
 export const FilledDouble = Template.bind({})

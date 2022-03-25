@@ -68,18 +68,20 @@ const Paper = ({ borderStyle = "double", variant = "elevation",  elevation = 0, 
     <MUIPaper
       variant="outlined"
       elevation={elevation}
+      {...props}
       className={
         classnames(
           borderStyle !== "double" ? classes.borderSingle : undefined,
           variant === "outlined" && classes.outlined,
-          rounded === "right" && classes.roundedRight,
           rounded === "left" && classes.roundedLeft,
           rounded === "top" && classes.roundedTop,
+          rounded === "right" && classes.roundedRight,
           rounded === "bottom" && classes.roundedBottom,
           rounded === "full" && classes.roundedFull,
+          props.className,
         )
       }
-      {...props}>
+    >
       {children}
     </MUIPaper>
   );

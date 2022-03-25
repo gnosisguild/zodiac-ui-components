@@ -116,6 +116,12 @@ const zodiacTheme = createTheme({
           pointerEvents: "none",
         },
       },
+      outlined: {
+        borderColor: colors.tan[300],
+      },
+      rounded: {
+        borderRadius: "unset",
+      },
     },
     MuiCssBaseline: {
       "@global": {
