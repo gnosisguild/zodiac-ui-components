@@ -1,7 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 import { CssBaseline, ThemeProvider as MUIThemeProvider } from "@material-ui/core"
-import zodiacMuiTheme from "../Theme/zodiacTheme"
+import zodiacMuiTheme from "../theme/zodiacTheme"
 import { theme as gnosisStyledComponentsTheme } from "@gnosis.pm/safe-react-components"
 
 interface ThemeProps {
