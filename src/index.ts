@@ -1,6 +1,5 @@
 import TextField from "./components/input/TextField"
 import Checkbox from "./components/input/Checkbox"
-import zodiacMuiTheme from "./theme/zodiacTheme"
-import { theme as gnosisStyledComponentsTheme } from "@gnosis.pm/safe-react-components" // exports it here to make sure its a compilable version
+import Theme from "./Theme"
 
-export { zodiacMuiTheme, gnosisStyledComponentsTheme, TextField, Checkbox }
+export { Theme, TextField, Checkbox }
