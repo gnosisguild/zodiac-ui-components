@@ -13,7 +13,7 @@ import SpectralRegularWoff2 from "../assets/fonts/Spectral/spectral-v7-latin-reg
 
 import ZodiacBackground from "../assets/images/zodiac-bg.svg"
 
-const colors = {
+export const colors = {
   tan: {
     100: "rgba(217, 212, 173, 0.1)",
     300: "rgba(217, 212, 173, 0.3)",
@@ -103,7 +103,7 @@ const zodiacTheme = createTheme({
   overrides: {
     MuiPaper: {
       root: {
-        borderRadius: "0 !important",
+        borderRadius: 0,
         border: "1px solid",
         borderColor: colors.tan[300],
         position: "relative",
@@ -111,10 +111,7 @@ const zodiacTheme = createTheme({
           content: '" "',
           position: "absolute",
           zIndex: 1,
-          top: "2px",
-          left: "2px",
-          right: "2px",
-          bottom: "2px",
+          inset: 2,
           border: `1px solid ${colors.tan[100]}`,
           pointerEvents: "none",
         },
@@ -201,10 +198,7 @@ const zodiacTheme = createTheme({
           content: '" "',
           position: "absolute",
           zIndex: 1,
-          top: -4,
-          left: -4,
-          right: -4,
-          bottom: -4,
+          inset: -4,
           border: `1px solid ${colors.tan[300]}`,
           pointerEvents: "none",
         },
