@@ -1,18 +1,9 @@
 import React from "react"
 
 import { addDecorator } from "@storybook/react"
-import { ThemeProvider } from "styled-components"
-import { CssBaseline, ThemeProvider as MUIThemeProvider } from "@material-ui/core"
-import { zodiacMuiTheme ,gnosisStyledComponentsTheme } from "../src/index"
+import { Theme } from "../src/index"
 
-addDecorator((story) => (
-  <MUIThemeProvider theme={zodiacMuiTheme}>
-    <ThemeProvider theme={gnosisStyledComponentsTheme}>
-      <CssBaseline />
-      {story()}
-    </ThemeProvider>
-  </MUIThemeProvider>
-))
+addDecorator((story) => <Theme>{story()}</Theme>)
 
 export const parameters = {
   layout: "centered",
