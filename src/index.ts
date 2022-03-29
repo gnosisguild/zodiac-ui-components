@@ -1,7 +1,15 @@
-import TextField from "./components/input/TextField"
-import Checkbox from "./components/input/Checkbox"
 import Theme from "./Theme"
-import { Button } from "@material-ui/core/Button"
+import { Button } from "@material-ui/core"
+import Checkbox from "./components/input/Checkbox"
+import Paper from "./components/Paper"
 import Modal from "./components/Modal"
+import TextField from "./components/input/TextField"
 
-export { Theme, TextField, Checkbox, Button, Modal }
+export { 
+  Button,
+  Checkbox,
+  Modal,
+  Paper,
+  TextField,
+  Theme,
+}

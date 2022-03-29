@@ -8,7 +8,7 @@ export default {
   component: Checkbox,
 } as Meta
 
-// Create a master template for mapping args to render the Button component
+// Create a master template for mapping args to render the Checkbox component
 const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 
 export const Checked = Template.bind({})

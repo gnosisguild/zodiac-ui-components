@@ -8,51 +8,8 @@ const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: colors.tan[100],
   },
-  borderSingle: {
-    "&::before": {
-      content: "none",
-    },
-  },
   outlined: {
     background: "transparent",
-  },
-  roundedRight: {
-    borderTopRightRadius: 9999,
-    borderBottomRightRadius: 9999,
-    "&::before": {
-      borderTopRightRadius: 9999,
-      borderBottomRightRadius: 9999,
-    },
-  },
-  roundedLeft: {
-    borderBottomLeftRadius: 9999,
-    borderTopLeftRadius: 9999,
-    "&::before": {
-      borderBottomLeftRadius: 9999,
-      borderTopLeftRadius: 9999,
-    },
-  },
-  roundedTop: {
-    borderTopLeftRadius: 9999,
-    borderTopRightRadius: 9999,
-    "&::before": {
-      borderTopLeftRadius: 9999,
-      borderTopRightRadius: 9999,
-    },
-  },
-  roundedBottom: {
-    borderBottomLeftRadius: 9999,
-    borderBottomRightRadius: 9999,
-    "&::before": {
-      borderBottomLeftRadius: 9999,
-      borderBottomRightRadius: 9999,
-    },
-  },
-  roundedFull: {
-    borderRadius: 9999,
-    "&::before": {
-      borderRadius: 9999,
-    },
   },
 }))
 
@@ -77,13 +34,13 @@ const Paper = ({
       elevation={elevation}
       {...props}
       className={classnames(
-        borderStyle !== "double" ? classes.borderSingle : undefined,
+        borderStyle === "double" ? 'border--double' : undefined,
+        rounded === "left" && "roundedLeft",
+        rounded === "top" && "roundedTop",
+        rounded === "right" && "roundedRight",
+        rounded === "bottom" && "roundedBottom",
+        rounded === "full" && "roundedFull",
         variant === "outlined" && classes.outlined,
-        rounded === "left" && classes.roundedLeft,
-        rounded === "top" && classes.roundedTop,
-        rounded === "right" && classes.roundedRight,
-        rounded === "bottom" && classes.roundedBottom,
-        rounded === "full" && classes.roundedFull,
         props.className,
       )}
     >

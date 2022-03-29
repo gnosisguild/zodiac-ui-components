@@ -2,26 +2,7 @@ import React from "react"
 import { GridProps, StandardTextFieldProps, TextField as MUITextField, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& label.Mui-focused": {
-      position: "relative",
-      transform: "none",
-      color: theme.palette.text.primary,
-      marginBottom: theme.spacing(1),
-    },
-    "& .MuiInputBase-root": {
-      marginTop: 0,
-      minHeight: "37px",
-    },
-    "& .MuiInputBase-root input": {
-      fontFamily: "Roboto Mono",
-      fontSize: "14px",
-    },
-    "& .MuiSelect-select:focus": {
-      backgroundColor: "transparent",
-    },
-  },
+const useStyles = makeStyles(() => ({
   borderSingle: {
     "&::before": {
       content: "none",
@@ -48,7 +29,7 @@ const TextField = ({
   const classes = useStyles()
   return (
     <MUITextField
-      className={classnames(borderStyle !== "double" ? classes.borderSingle : undefined, props.className)}
+      className={classnames(borderStyle !== "double" ? "border--double" : undefined, props.className)}
       classes={{ root: classes.root }}
       focused={!props.disabled}
       label={label}

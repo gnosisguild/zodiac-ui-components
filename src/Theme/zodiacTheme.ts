@@ -72,6 +72,15 @@ shadows[1] = "0px 2px 4px rgba(105, 112, 117, 0.2)"
 shadows[2] = "0px 4px 4px rgba(0, 0, 0, 0.25)"
 shadows[3] = "0px 4px 10px rgba(105, 112, 117, 0.2)"
 
+const doubleBorder = (inset = 2, color = colors.tan[100]) => ({
+  content: '""',
+  position: "absolute",
+  zIndex: 1,
+  inset: inset,
+  border: `1px solid ${color}`,
+  pointerEvents: "none",
+})
+
 const zodiacTheme = createTheme({
   palette,
   shadows,
@@ -107,13 +116,44 @@ const zodiacTheme = createTheme({
         border: "1px solid",
         borderColor: colors.tan[300],
         position: "relative",
-        "&::before": {
-          content: '" "',
-          position: "absolute",
-          zIndex: 1,
-          inset: 2,
-          border: `1px solid ${colors.tan[100]}`,
-          pointerEvents: "none",
+        "&.border--double::before": doubleBorder(2),
+        "&.roundedRight": {
+          borderTopRightRadius: 9999,
+          borderBottomRightRadius: 9999,
+          "&::before": {
+            borderTopRightRadius: 9999,
+            borderBottomRightRadius: 9999,
+          },
+        },
+        "&.roundedLeft": {
+          borderBottomLeftRadius: 9999,
+          borderTopLeftRadius: 9999,
+          "&::before": {
+            borderBottomLeftRadius: 9999,
+            borderTopLeftRadius: 9999,
+          },
+        },
+        "&.roundedTop": {
+          borderTopLeftRadius: 9999,
+          borderTopRightRadius: 9999,
+          "&::before": {
+            borderTopLeftRadius: 9999,
+            borderTopRightRadius: 9999,
+          },
+        },
+        "&.roundedBottom": {
+          borderBottomLeftRadius: 9999,
+          borderBottomRightRadius: 9999,
+          "&::before": {
+            borderBottomLeftRadius: 9999,
+            borderBottomRightRadius: 9999,
+          },
+        },
+        "&.roundedFull": {
+          borderRadius: 9999,
+          "&::before": {
+            borderRadius: 9999,
+          },
         },
       },
       outlined: {
@@ -178,6 +218,21 @@ const zodiacTheme = createTheme({
     MuiTypography: {
       gutterBottom: { marginBottom: 8 },
     },
+    MuiCheckbox: {
+      root: {
+        padding: 0,
+        backgroundColor: "red",
+        borderRadius: 0,
+        margin: "4px",
+        marginRight: 0,
+      },
+      colorSecondary: {
+        color: "#ffffff",
+        "&$checked": {
+          color: "#ffffff",
+        },
+      },
+    },
     MuiChip: {
       root: {
         padding: "4px 8px",
@@ -200,14 +255,7 @@ const zodiacTheme = createTheme({
         position: "relative",
         borderRadius: 0,
         cursor: "pointer",
-        "&::before": {
-          content: '" "',
-          position: "absolute",
-          zIndex: 1,
-          inset: -4,
-          border: `1px solid ${colors.tan[300]}`,
-          pointerEvents: "none",
-        },
+        "&::before": doubleBorder(-4, colors.tan[300]),
         "&:hover": {
           opacity: 0.9,
         },
@@ -225,14 +273,6 @@ const zodiacTheme = createTheme({
         "&:hover": {
           backgroundColor: `1px solid ${colors.tan[300]}`,
           border: `1px solid ${colors.tan[300]}`,
-        },
-      },
-    },
-    MuiCheckbox: {
-      colorSecondary: {
-        color: "#ffffff",
-        "&$checked": {
-          color: "#ffffff",
         },
       },
     },
@@ -263,6 +303,28 @@ const zodiacTheme = createTheme({
       },
       footer: {
         color: "",
+      },
+    },
+    MuiTextField: {
+      root: {
+        "& label.Mui-focused": {
+          position: "relative",
+          transform: "none",
+          color: palette.text.primary,
+          marginBottom: "4px",
+        },
+        "& .MuiInputBase-root": {
+          marginTop: 0,
+          minHeight: "37px",
+        },
+        "& .MuiInputBase-root input": {
+          fontFamily: "Roboto Mono",
+          fontSize: "14px",
+        },
+        "& .MuiSelect-select:focus": {
+          backgroundColor: "transparent",
+        },
+        "&.border--double::before": doubleBorder,
       },
     },
     MuiFormControlLabel: {

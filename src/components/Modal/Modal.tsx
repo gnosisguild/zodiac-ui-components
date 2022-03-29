@@ -1,5 +1,6 @@
 import React from "react"
-import { makeStyles, Paper, Modal as MUIModal } from "@material-ui/core"
+import Paper from "../Paper"
+import { makeStyles, Modal as MUIModal } from "@material-ui/core"
 import { PropsWithChildren } from "react"
 
 const useStyles = makeStyles((theme) => ({
