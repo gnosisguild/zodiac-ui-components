@@ -1,14 +1,6 @@
 import React from "react"
-import { GridProps, StandardTextFieldProps, TextField as MUITextField, makeStyles } from "@material-ui/core"
+import { GridProps, StandardTextFieldProps, TextField as MUITextField } from "@material-ui/core"
 import classnames from "classnames"
-
-const useStyles = makeStyles(() => ({
-  borderSingle: {
-    "&::before": {
-      content: "none",
-    },
-  },
-}))
 
 export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" | "label"> {
   label?: string
@@ -18,7 +10,7 @@ export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" |
 }
 
 const TextField = ({
-  borderStyle = "double",
+  borderStyle = "single",
   InputProps,
   InputLabelProps,
   label,
@@ -26,11 +18,10 @@ const TextField = ({
   AppendProps,
   ...props
 }: TextFieldProps) => {
-  const classes = useStyles()
+  console.log(borderStyle)
   return (
     <MUITextField
-      className={classnames(borderStyle !== "double" ? "border--double" : undefined, props.className)}
-      classes={{ root: classes.root }}
+      className={classnames(borderStyle === "double" ? "border--double" : undefined, props.className)}
       focused={!props.disabled}
       label={label}
       placeholder={label}

@@ -11,8 +11,8 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<TextFieldProps> = (args) => <TextField {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = { label: "Text filed label" }
+export const DoubleBorder = Template.bind({})
+DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
 
-export const Secondary = Template.bind({})
-Secondary.args = { label: "Another label" }
+export const SingleBorder = Template.bind({})
+SingleBorder.args = { label: "Another label" }

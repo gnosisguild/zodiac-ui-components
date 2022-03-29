@@ -324,7 +324,10 @@ const zodiacTheme = createTheme({
         "& .MuiSelect-select:focus": {
           backgroundColor: "transparent",
         },
-        "&.border--double::before": doubleBorder,
+        "&.border--double .MuiInputBase-root": {
+          paddingLeft: 8,
+          "&::before": doubleBorder(2, colors.tan[300]),
+        }
       },
     },
     MuiFormControlLabel: {
