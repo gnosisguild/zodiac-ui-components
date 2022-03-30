@@ -221,7 +221,7 @@ const zodiacTheme = createTheme({
     MuiCheckbox: {
       root: {
         padding: 0,
-        backgroundColor: "red",
+        backgroundColor: "transparent !important",
         borderRadius: 0,
         margin: "4px",
         marginRight: 0,
