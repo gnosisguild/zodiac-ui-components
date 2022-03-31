@@ -1,9 +1,9 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external"
-import resolve from "@rollup/plugin-node-resolve"
-import commonjs from "@rollup/plugin-commonjs"
-import typescript from "rollup-plugin-typescript2"
-import postcss from "rollup-plugin-postcss"
-import url from "@rollup/plugin-url"
+import pluginPeerDepsExternal from "rollup-plugin-peer-deps-external"
+import pluginNodeResolve from "@rollup/plugin-node-resolve"
+import pluginCommonjs from "@rollup/plugin-commonjs"
+import pluginTypescript from "rollup-plugin-typescript2"
+import pluginPostcss from "rollup-plugin-postcss"
+import pluginUrl from "@rollup/plugin-url"
 
 const packageJson = require("./package.json")
 
@@ -22,17 +22,21 @@ export default {
     },
   ],
   plugins: [
-    url({
+    pluginUrl({
       include: ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.svg"],
       limit: Infinity,
       fileName: "[dirname][name][extname]",
     }),
-    peerDepsExternal(),
-    resolve(),
-    commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
-    postcss({
+    pluginPeerDepsExternal(),
+    pluginTypescript({ useTsconfigDeclarationDir: true }),
+    pluginCommonjs({
+      extensions: [".js", ".ts"],
+    }),
+    pluginPostcss({
       extensions: [".css"],
+    }),
+    pluginNodeResolve({
+      browser: true,
     }),
   ],
 }
