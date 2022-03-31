@@ -1,6 +1,6 @@
 {
   "name": "zodiac-ui-components",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "A shared UI component library for Gnosis Guild's Zodiac.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -12,6 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rollup -c",
+    "prepare": "rollup -c",
     "fmt": "prettier '(test|src)/**/*.ts' -w",
     "pre-commit": "yarn fmt"
   },
