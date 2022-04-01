@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { Meta } from "@storybook/react/types-6-0"
 import { Story } from "@storybook/react"
-import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
+import { ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from "@material-ui/lab";
 import { Box, Typography } from "@material-ui/core";
 
 export default {
@@ -26,8 +26,8 @@ const items: Item[] = [
   { id: '5', label: 'Custom Tab', customContent: <div>Tab - Custom</div> },
 ];
 
-type TabProps = {
-  items: Array<Item>;
+interface TabProps extends ToggleButtonGroupProps {
+  items: Array<Item>
 }
 
 // Create a master template for mapping args to render the Paper component
@@ -59,3 +59,6 @@ const Template: Story<TabProps> = (args) => {
 };
 
 export const SimpleTab = Template.bind({})
+
+export const SmallTab = Template.bind({})
+SmallTab.args = { size: "small" }
