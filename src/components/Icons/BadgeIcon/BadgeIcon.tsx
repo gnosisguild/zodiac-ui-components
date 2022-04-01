@@ -57,12 +57,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export type ModuleIconProps = {
+export type BadgeIconProps = {
   icon: "bridge" | "reality" | "roles" | "exit" | "custom" | "zodiac"
   size?: number
 }
 
-const ModuleIcon = ({ icon, size = 46, ...props }: ModuleIconProps) => {
+const BadgeIcon = ({ icon, size = 46, ...props }: BadgeIconProps) => {
   const classes = useStyles();
 
   return (
@@ -78,4 +78,4 @@ const ModuleIcon = ({ icon, size = 46, ...props }: ModuleIconProps) => {
   )
 }
 
-export default ModuleIcon
+export default BadgeIcon

@@ -1,19 +1,19 @@
 import React from "react"
 import { Meta } from "@storybook/react/types-6-0"
 import { Story } from "@storybook/react"
-import ModuleIcon, { ModuleIconProps } from "./ModuleIcon"
+import BadgeIcon, { BadgeIconProps } from "./BadgeIcon"
 
 export default {
-  title: "Components/Icons/ModuleIcon",
-  component: ModuleIcon,
+  title: "Components/Icons/BadgeIcon",
+  component: BadgeIcon,
   args: {
     icon: "zodiac",
     size: 100,
   }
 } as Meta
 
-// Create a master template for mapping args to render the Module Icon component
-const Template: Story<ModuleIconProps> = (args) => <ModuleIcon {...args} />
+// Create a master template for mapping args to render the Badge Icon component
+const Template: Story<BadgeIconProps> = (args) => <BadgeIcon {...args} />
 
 export const Bridge = Template.bind({})
 Bridge.args = {
