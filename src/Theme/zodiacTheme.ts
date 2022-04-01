@@ -32,6 +32,15 @@ export const colors = {
   }
 }
 
+export const doubleBorder = (inset = 2, color = colors.tan[100]) => ({
+  content: '""',
+  position: "absolute",
+  zIndex: inset > 0 ? 1 : -1,
+  inset: inset,
+  border: `1px solid ${color}`,
+  pointerEvents: "none",
+})
+
 const palette = createPalette({
   type: "dark",
   background: {
@@ -72,15 +81,6 @@ shadows[1] = "0px 2px 4px rgba(105, 112, 117, 0.2)"
 shadows[2] = "0px 4px 4px rgba(0, 0, 0, 0.25)"
 shadows[3] = "0px 4px 10px rgba(105, 112, 117, 0.2)"
 
-const doubleBorder = (inset = 2, color = colors.tan[100]) => ({
-  content: '""',
-  position: "absolute",
-  zIndex: 1,
-  inset: inset,
-  border: `1px solid ${color}`,
-  pointerEvents: "none",
-})
-
 const zodiacTheme = createTheme({
   palette,
   shadows,
@@ -110,6 +110,151 @@ const zodiacTheme = createTheme({
     borderRadius: 0,
   },
   overrides: {
+
+    // Baseline
+    MuiCssBaseline: {
+      "@global": {
+        ":root": {
+          "--scrollbarWidth": 6,
+        },
+        "@font-face": [averta, roboto, spectral],
+        "html": {
+          height: "100%"
+        },
+        body: {
+          margin: 0,
+          padding: 0,
+          background: `url(${ZodiacBackground}) 0 0% / cover fixed`,
+          "&:before": {
+            content: `""`,
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(108.86deg,
+              rgba(26, 33, 66, 0.85) 6.24%,
+              rgba(12, 19, 8, 0.85) 53.08%,
+              rgba(37, 6, 4, 0.85) 96.54%)`,
+            zIndex: 0,
+          },
+        },
+        a: {
+          cursor: "pointer",
+          textDecoration: "none",
+        },
+        /* Works on Firefox*/
+        "*": {
+          scrollbarWidth: "thin",
+          scrollbarColor: `${colors.tan[600]} ${colors.tan[100]}`,
+        },
+        /* Works on Chrome, Edge, and Safari */
+        "*::-webkit-scrollbar": {
+          width: `var(--scrollbarWidth)`,
+        },
+        "*::-webkit-scrollbar-track": {
+          background: "none",
+        },
+        "*::-webkit-scrollbar-thumb": {
+          backgroundColor: colors.tan[100],
+          borderRadius: 0,
+        },
+        ".MuiFormControl-root, .MuiInputBase-root": {
+          width: "100%",
+        },
+        "aside.bn-onboard-custom": {
+          zIndex: 2,
+        },
+      },
+    },
+
+    // Typography
+    MuiTypography: {
+      gutterBottom: { marginBottom: 8 },
+    },
+
+    // Components
+    MuiCheckbox: {
+      root: {
+        padding: 0,
+        backgroundColor: "transparent !important",
+        borderRadius: 0,
+        margin: "4px",
+        marginRight: 0,
+      },
+      colorSecondary: {
+        color: "#ffffff",
+        "&$checked": {
+          color: "#ffffff",
+        },
+      },
+    },
+    MuiChip: {
+      root: {
+        padding: "4px 8px",
+        height: "auto",
+        backgroundColor: colors.tan[100],
+        border: `1px solid ${colors.tan[300]}`,
+      },
+      avatar: {
+        display: "contents !important",
+      },
+      label: {
+        paddingLeft: 0,
+        paddingRight: 0,
+      },
+    },
+    MuiButton: {
+      root: {
+        lineHeight: 1.4,
+        textTransform: "none",
+        position: "relative",
+        borderRadius: 0,
+        cursor: "pointer",
+        "&::before": doubleBorder(-3, colors.tan[300]),
+        "&:hover": {
+          opacity: 0.9,
+        },
+      },
+      contained: {
+        boxShadow: "none",
+        border: `1px solid ${colors.tan[300]}`,
+      },
+      containedSizeSmall: {
+        padding: "4px 8px",
+      },
+      outlinedSecondary: {
+        border: `1px solid ${colors.tan[300]}`,
+        color: "#fff",
+        "&:hover": {
+          backgroundColor: `1px solid ${colors.tan[300]}`,
+          border: `1px solid ${colors.tan[300]}`,
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      root: {
+        marginLeft: 0,
+      },
+    },
+    MuiInputBase: {
+      root: {
+        borderRadius: 0,
+        border: `1px solid ${colors.tan[300]}`,
+        padding: "8px 4px",
+        position: "relative",
+      },
+      input: {
+        padding: 0,
+      },
+    },
+    MuiInputLabel: {
+      root: {
+        fontSize: 16,
+      },
+    },
+    MuiPopover: {
+      paper: {
+        backgroundColor: "rgb(16, 16, 16)",
+      },
+    },
     MuiPaper: {
       root: {
         backgroundColor: colors.tan[100],
@@ -165,139 +310,10 @@ const zodiacTheme = createTheme({
         borderRadius: "unset",
       },
     },
-    MuiCssBaseline: {
-      "@global": {
-        ":root": {
-          "--scrollbarWidth": 6,
-        },
-        "@font-face": [averta, roboto, spectral],
-        "html": {
-          height: "100%"
-        },
-        body: {
-          margin: 0,
-          padding: 0,
-          background: `url(${ZodiacBackground}) 0 0% / cover fixed`,
-          "&:before": {
-            content: `""`,
-            position: "absolute",
-            inset: 0,
-            background: `linear-gradient(108.86deg,
-              rgba(26, 33, 66, 0.85) 6.24%,
-              rgba(12, 19, 8, 0.85) 53.08%,
-              rgba(37, 6, 4, 0.85) 96.54%)`,
-            zIndex: 0,
-          },
-        },
-        a: {
-          cursor: "pointer",
-          textDecoration: "none",
-        },
-        /* Works on Firefox*/
-        "*": {
-          scrollbarWidth: "thin",
-          scrollbarColor: `${colors.tan[600]} ${colors.tan[100]}`,
-        },
-        /* Works on Chrome, Edge, and Safari */
-        "*::-webkit-scrollbar": {
-          width: `var(--scrollbarWidth)`,
-        },
-        "*::-webkit-scrollbar-track": {
-          background: "none",
-        },
-        "*::-webkit-scrollbar-thumb": {
-          backgroundColor: colors.tan[100],
-          borderRadius: 0,
-        },
-        ".MuiFormControl-root, .MuiInputBase-root": {
-          width: "100%",
-        },
-        "aside.bn-onboard-custom": {
-          zIndex: 2,
-        },
-      },
-    },
-    MuiTypography: {
-      gutterBottom: { marginBottom: 8 },
-    },
-    MuiCheckbox: {
+    MuiSelect: {
       root: {
-        padding: 0,
-        backgroundColor: "transparent !important",
-        borderRadius: 0,
-        margin: "4px",
-        marginRight: 0,
-      },
-      colorSecondary: {
-        color: "#ffffff",
-        "&$checked": {
-          color: "#ffffff",
-        },
-      },
-    },
-    MuiChip: {
-      root: {
-        padding: "4px 8px",
-        height: "auto",
-        backgroundColor: colors.tan[100],
-        border: `1px solid ${colors.tan[300]}`,
-      },
-      avatar: {
-        display: "contents !important",
-      },
-      label: {
-        paddingLeft: 0,
-        paddingRight: 0,
-      },
-    },
-    MuiButton: {
-      root: {
-        lineHeight: 1.4,
-        textTransform: "none",
-        position: "relative",
-        borderRadius: 0,
-        cursor: "pointer",
-        "&::before": doubleBorder(-4, colors.tan[300]),
-        "&:hover": {
-          opacity: 0.9,
-        },
-      },
-      contained: {
-        boxShadow: "none",
-        border: `1px solid ${colors.tan[300]}`,
-      },
-      containedSizeSmall: {
-        padding: "4px 8px",
-      },
-      outlinedSecondary: {
-        border: `1px solid ${colors.tan[300]}`,
-        color: "#fff",
-        "&:hover": {
-          backgroundColor: `1px solid ${colors.tan[300]}`,
-          border: `1px solid ${colors.tan[300]}`,
-        },
-      },
-    },
-    MuiInputBase: {
-      root: {
-        borderRadius: 0,
-        border: `1px solid ${colors.tan[300]}`,
-        padding: "8px 4px",
-        position: "relative",
-      },
-      input: {
-        padding: 0,
-      },
-    },
-    MuiPopover: {
-      paper: {
-        backgroundColor: "rgb(16, 16, 16)",
-      },
-    },
-    MuiInputLabel: {
-      root: {
-        fontSize: 16,
-      },
+        borderColor: colors.tan[300],
+      }
     },
     MuiTableCell: {
       root: {
@@ -330,11 +346,6 @@ const zodiacTheme = createTheme({
           paddingLeft: 8,
           "&::before": doubleBorder(2, colors.tan[300]),
         }
-      },
-    },
-    MuiFormControlLabel: {
-      root: {
-        marginLeft: 0,
       },
     },
   },
