@@ -112,6 +112,7 @@ const zodiacTheme = createTheme({
   overrides: {
     MuiPaper: {
       root: {
+        backgroundColor: colors.tan[100],
         borderRadius: 0,
         border: "1px solid",
         borderColor: colors.tan[300],
@@ -157,6 +158,7 @@ const zodiacTheme = createTheme({
         },
       },
       outlined: {
+        backgroundColor: "transparent",
         borderColor: colors.tan[300],
       },
       rounded: {
