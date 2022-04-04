@@ -4,6 +4,7 @@ import pluginCommonjs from "@rollup/plugin-commonjs"
 import pluginTypescript from "rollup-plugin-typescript2"
 import pluginPostcss from "rollup-plugin-postcss"
 import pluginUrl from "@rollup/plugin-url"
+import image from "@rollup/plugin-image"
 
 const packageJson = require("./package.json")
 
@@ -38,5 +39,6 @@ export default {
     pluginNodeResolve({
       browser: true,
     }),
+    image(),
   ],
 }
