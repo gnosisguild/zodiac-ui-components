@@ -7,7 +7,7 @@ export interface PaperProps extends MuiPaperProps {
   rounded?: "left" | "top" | "right" | "bottom" | "full"
 }
 
-const Paper = ({ borderStyle = "double", rounded, children, ...props }: PaperProps) => {
+const Paper = ({ borderStyle = "single", rounded, children, ...props }: PaperProps) => {
   return (
     <MUIPaper
       {...props}

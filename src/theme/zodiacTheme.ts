@@ -18,8 +18,14 @@ import ZodiacBackground from "../assets/images/zodiac-bg.svg"
 export const colors = {
   tan: {
     100: "rgba(217, 212, 173, 0.1)",
+    200: "rgba(217, 212, 173, 0.2)",
     300: "rgba(217, 212, 173, 0.3)",
-    600: "rgba(217, 212, 173, 0.3)",
+    400: "rgba(217, 212, 173, 0.4)",
+    500: "rgba(217, 212, 173, 0.5)",
+    600: "rgba(217, 212, 173, 0.6)",
+    700: "rgba(217, 212, 173, 0.7)",
+    800: "rgba(217, 212, 173, 0.8)",
+    900: "rgba(217, 212, 173, 0.9)",
     1000: "rgba(217, 212, 173, 1)",
   },
   sepia: {
@@ -142,6 +148,9 @@ const overrides: Overrides = {
       "aside.bn-onboard-custom": {
         zIndex: 2,
       },
+      ".border--double": {
+        "&::before": doubleBorder(2),
+      },
     },
   },
   // Typography
@@ -240,7 +249,6 @@ const overrides: Overrides = {
       border: "1px solid",
       borderColor: colors.tan[300],
       position: "relative",
-      "&.border--double::before": doubleBorder(2),
       "&.roundedRight": {
         borderTopRightRadius: 9999,
         borderBottomRightRadius: 9999,
