@@ -8,6 +8,7 @@ import reality from "../../../assets/images/reality-module-logo.png"
 import roles from "../../../assets/images/roles-module-logo.png"
 import zodiac from "../../../assets/images/zodiac-app-logo.png"
 import { makeStyles } from "@material-ui/core"
+import classnames from "classnames"
 
 const icons = {
   bridge: {
@@ -60,16 +61,17 @@ const useStyles = makeStyles((theme) => ({
 export type BadgeIconProps = {
   icon: "bridge" | "reality" | "delay" | "roles" | "exit" | "custom" | "zodiac"
   size?: number
+  className?: string
 }
 
-const BadgeIcon = ({ icon, size = 46, ...props }: BadgeIconProps) => {
+const BadgeIcon = ({ icon, size = 46, className, ...props }: BadgeIconProps) => {
   const classes = useStyles();
 
   return (
     <Paper
       rounded="full"
       variant="outlined"
-      className={classes.root}
+      className={classnames(classes.root, className)}
       style={{height: size, width: size}} 
       {...props}
     >
