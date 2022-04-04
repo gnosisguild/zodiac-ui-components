@@ -159,6 +159,34 @@ const overrides: Overrides = {
     gutterBottom: { marginBottom: 8 },
   },
   // Components
+  MuiButton: {
+    root: {
+      lineHeight: 1.4,
+      textTransform: "none",
+      position: "relative",
+      borderRadius: 0,
+      cursor: "pointer",
+      "&::before": doubleBorder(-3, colors.tan[300]),
+      "&:hover": {
+        opacity: 0.9,
+      },
+    },
+    contained: {
+      boxShadow: "none",
+      border: `1px solid ${colors.tan[300]}`,
+    },
+    containedSizeSmall: {
+      padding: "4px 8px",
+    },
+    outlinedSecondary: {
+      border: `1px solid ${colors.tan[300]}`,
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: `1px solid ${colors.tan[300]}`,
+        border: `1px solid ${colors.tan[300]}`,
+      },
+    },
+  },
   MuiCheckbox: {
     root: {
       padding: 0,

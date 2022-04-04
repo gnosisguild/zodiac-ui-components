@@ -18,7 +18,6 @@ const TextField = ({
   AppendProps,
   ...props
 }: TextFieldProps) => {
-  console.log(borderStyle)
   return (
     <MUITextField
       className={classnames(borderStyle === "double" ? "border--double" : undefined, props.className)}
