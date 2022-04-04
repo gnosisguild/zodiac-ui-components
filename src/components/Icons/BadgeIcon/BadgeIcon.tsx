@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export type BadgeIconProps = {
-  icon: "bridge" | "reality" | "roles" | "exit" | "custom" | "zodiac"
+  icon: "bridge" | "reality" | "delay" | "roles" | "exit" | "custom" | "zodiac"
   size?: number
 }
 

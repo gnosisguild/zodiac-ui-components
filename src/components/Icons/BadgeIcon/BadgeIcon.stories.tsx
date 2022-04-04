@@ -25,6 +25,11 @@ Roles.args = {
   icon: "roles",
 }
 
+export const Delay = Template.bind({})
+Delay.args = {
+  icon: "delay",
+}
+
 export const Reality = Template.bind({})
 Reality.args = {
   icon: "reality",
