@@ -124,7 +124,8 @@ const overrides: Overrides = {
       },
       a: {
         cursor: "pointer",
-        textDecoration: "none",
+        textDecoration: "underline",
+        textUnderlineOffset: 1,
       },
       /* Works on Firefox*/
       "*": {
@@ -296,7 +297,7 @@ const overrides: Overrides = {
       },
       "& .MuiInputBase-root input": {
         fontFamily: "Roboto Mono",
-        fontSize: "14px",
+        fontSize: ".75rem",
       },
       "& .MuiSelect-select:focus": {
         backgroundColor: "transparent",
