@@ -188,13 +188,6 @@ const overrides: Overrides = {
     },
   },
   MuiCheckbox: {
-    root: {
-      padding: 0,
-      backgroundColor: "transparent !important",
-      borderRadius: 0,
-      margin: "4px",
-      marginRight: 0,
-    },
     colorSecondary: {
       color: "#ffffff",
       "&$checked": {
