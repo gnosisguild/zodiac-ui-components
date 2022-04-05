@@ -101,7 +101,7 @@ const overrides: Overrides = {
   MuiCssBaseline: {
     "@global": {
       ":root": {
-        "--scrollbarWidth": 6,
+        "--scrollbarWidth": "6px",
       },
       "@font-face": [averta, roboto, spectral],
       "html": {
@@ -229,6 +229,9 @@ const overrides: Overrides = {
       border: `1px solid rgb(255,255,255)`,
       padding: "8px 4px",
       position: "relative",
+      "&.Mui-disabled": {
+        borderColor: `rgba(255,255,255,0.5)`,
+      },
     },
     input: {
       padding: 0,
