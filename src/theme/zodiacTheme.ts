@@ -210,7 +210,22 @@ const overrides: Overrides = {
       paddingRight: 0,
     },
   },
-
+  MuiFormControl: {
+    root: {
+      "& .MuiInputBase-root": {
+        marginTop: 0,
+      },
+      "&.border--double": {
+        "&::before": {
+          content: "none"
+        },
+        "& .MuiInputBase-root": {
+          paddingLeft: 8,
+          "&::before": doubleBorder(2, colors.tan[300]),
+        },
+      },
+    }
+  },
   MuiFormControlLabel: {
     root: {
       marginLeft: 0,
@@ -220,20 +235,43 @@ const overrides: Overrides = {
     root: {
       borderRadius: 0,
       border: `1px solid rgb(255,255,255)`,
+      marginTop: 0,
+      minHeight: 37,
       padding: "8px 4px",
       position: "relative",
-      "&.Mui-disabled": {
+      "&$disabled": {
         borderColor: `rgba(255,255,255,0.5)`,
       },
     },
     input: {
       padding: 0,
+      fontFamily: "Roboto Mono",
+      fontSize: ".75rem",
+      "&::placeholder": {
+        color: "#ffffff",
+      },
     },
   },
   MuiInputLabel: {
     root: {
+      color: "rgb(255,255,255)",
       fontSize: 16,
+      marginBottom: 4,
+      position: "relative",
+      transform: "none",
+      "&$focused": {
+        color: "rgb(255,255,255)",
+      },
     },
+    shrink: {
+      transform: "unset",
+    },
+    formControl: {
+      position: "relative",
+      top: "unset",
+      left: "unset",
+      transform: "unset",
+    }
   },
   MuiPopover: {
     paper: {
@@ -296,6 +334,7 @@ const overrides: Overrides = {
   },
   MuiSelect: {
     root: {
+      backgroundColor: "transparent",
       borderColor: colors.tan[300],
     }
   },
@@ -305,31 +344,6 @@ const overrides: Overrides = {
     },
     footer: {
       color: "",
-    },
-  },
-  MuiTextField: {
-    root: {
-      "& label.Mui-focused": {
-        position: "relative",
-        transform: "none",
-        color: palette.text.primary,
-        marginBottom: "4px",
-      },
-      "& .MuiInputBase-root": {
-        marginTop: 0,
-        minHeight: "37px",
-      },
-      "& .MuiInputBase-root input": {
-        fontFamily: "Roboto Mono",
-        fontSize: ".75rem",
-      },
-      "& .MuiSelect-select:focus": {
-        backgroundColor: "transparent",
-      },
-      "&.border--double .MuiInputBase-root": {
-        paddingLeft: 8,
-        "&::before": doubleBorder(2, colors.tan[300]),
-      }
     },
   },
   MuiToggleButton: {
