@@ -1,22 +1,35 @@
 import React from "react"
-import { Checkbox as MUICheckbox, CheckboxProps } from "@material-ui/core"
+import { 
+  Checkbox as MUICheckbox,
+  CheckboxProps as MUICheckboxProps,
+  FormControlLabel,
+  FormControlLabelProps as MUIFormControlLabelProps,
+  } from "@material-ui/core"
 import CheckMarkCheckedIcon from "../../../assets/icons/checkbox-checked.svg"
 import CheckMarkUncheckedIcon from "../../../assets/icons/checkbox-unchecked.svg"
 import CheckMarkIndeterminateIcon from "../../../assets/icons/checkbox-indeterminate.svg"
 
-export type { CheckboxProps }
+export interface FormControlLabelProps extends MUIFormControlLabelProps {
+  CheckboxProps: MUICheckboxProps
+}
 
-const Checkbox = ({ ...props }: CheckboxProps) => {
-
+const Checkbox = ({ label, CheckboxProps, ...props }: FormControlLabelProps) => {
+  console.log(label)
   return (
-    <MUICheckbox
-      disableFocusRipple
-      disableRipple
-      disableTouchRipple
-      icon={<img src={CheckMarkUncheckedIcon} />}
-      checkedIcon={<img src={CheckMarkCheckedIcon} />}
-      indeterminateIcon={<img src={CheckMarkIndeterminateIcon} />}
+    <FormControlLabel
+      label={label}
       {...props}
+      control={
+        <MUICheckbox
+          disableFocusRipple
+          disableRipple
+          disableTouchRipple
+          icon={<img src={CheckMarkUncheckedIcon} />}
+          checkedIcon={<img src={CheckMarkCheckedIcon} />}
+          indeterminateIcon={<img src={CheckMarkIndeterminateIcon} />}
+          {...CheckboxProps}
+        />
+      }
     />
   )
 }
