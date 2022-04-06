@@ -1,7 +1,8 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import Paper from "../Paper"
-import { makeStyles, Modal as MUIModal } from "@material-ui/core"
+import { makeStyles, Modal as MUIModal, ModalProps as MUIModalProps } from "@material-ui/core"
 import { PropsWithChildren } from "react"
+import classnames from "classnames"
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -16,17 +17,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export type ModalProps = PropsWithChildren<{
+export interface ModalProps extends MUIModalProps {
   isOpen: boolean
   onClose: () => void
-}>
+}
 
-const Modal = ({ children, isOpen, onClose }: ModalProps) => {
+const Modal = ({ children, isOpen, onClose, ...props }: ModalProps) => {
   const classes = useStyles()
 
   return (
     <MUIModal open={isOpen} onClose={onClose} BackdropProps={{ style: { backdropFilter: "blur(4px)" } }}>
-      <Paper elevation={3} classes={{ root: classes.paper }}>
+      <Paper
+        elevation={3}
+        {...props}
+        className={classnames(classes.paper, props.className,)}
+      >
         {children}
       </Paper>
     </MUIModal>

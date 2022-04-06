@@ -12,10 +12,16 @@ export default {
   },
 } as Meta
 
-// Create a master template for mapping args to render the Button component
+// Create a master template for mapping args to render the Modal component
 const Template: Story<ModalProps> = (args) => <Modal {...args} />
 
 export const Open = Template.bind({})
 Open.args = {
+  children: <p>Here the content goes.</p>,
+}
+
+export const Small = Template.bind({})
+Small.args = {
+  style: {maxWidth: 420},
   children: <p>Here the content goes.</p>,
 }
