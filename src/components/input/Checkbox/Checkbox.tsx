@@ -10,7 +10,7 @@ import CheckMarkUncheckedIcon from "../../../assets/icons/checkbox-unchecked.svg
 import CheckMarkIndeterminateIcon from "../../../assets/icons/checkbox-indeterminate.svg"
 
 export interface FormControlLabelProps extends MUIFormControlLabelProps {
-  CheckboxProps: MUICheckboxProps
+  CheckboxProps?: MUICheckboxProps
 }
 
 const Checkbox = ({ label, CheckboxProps, ...props }: FormControlLabelProps) => {
