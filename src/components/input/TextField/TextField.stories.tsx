@@ -18,6 +18,7 @@ DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
 
 export const SingleBorder = Template.bind({})
 SingleBorder.args = { label: "Another label" }
+
 export const Search = Template.bind({})
 Search.args = {
   placeholder: "Filter token list",

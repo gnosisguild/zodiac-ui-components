@@ -1,23 +1,32 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react/types-6-0"
-import { Story } from "@storybook/react"
-import Checkbox, { CheckboxProps } from "./Checkbox"
+import Checkbox from "./Checkbox"
+import { FormControl, FormControlLabel } from "@material-ui/core"
 
 export default {
   title: "Components/Input/Checkbox",
   component: Checkbox,
 } as Meta
 
-// Create a master template for mapping args to render the Checkbox component
-const Template: Story<CheckboxProps> = (args) =>  {
+export const SimpleCheckbox = (): React.ReactElement => {
   const [enabled, setEnabled] = useState(true);
   return (
     <Checkbox
-      {...args}
+      name="checkbox"
       checked={enabled}
       onChange={(_, checked) => setEnabled(checked)}
     />
   );
 };
 
-export const SimpleCheckbox = Template.bind({})
+export const CheckboxWithLabel = (): React.ReactElement => {
+  const [enabled, setEnabled] = useState(true);
+  return (
+    <FormControl>
+      <FormControlLabel 
+        control={<Checkbox name="checkbox" checked={enabled} onChange={(_, checked) => setEnabled(checked)}/>}
+        label="Checkbox with a label"
+      />
+    </FormControl>
+  );
+};
