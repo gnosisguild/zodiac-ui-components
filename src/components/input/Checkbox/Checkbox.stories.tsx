@@ -1,17 +1,15 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react/types-6-0"
 import { Story } from "@storybook/react"
-import Checkbox, { FormControlLabelProps } from "./Checkbox"
+import Checkbox, { CheckboxProps } from "./Checkbox"
 
 export default {
   title: "Components/Input/Checkbox",
   component: Checkbox,
-  args: {
-    name: "checkbox",
-  }
 } as Meta
 
-const Template: Story<FormControlLabelProps> = (args) =>  {
+// Create a master template for mapping args to render the Checkbox component
+const Template: Story<CheckboxProps> = (args) =>  {
   const [enabled, setEnabled] = useState(true);
   return (
     <Checkbox
@@ -23,10 +21,3 @@ const Template: Story<FormControlLabelProps> = (args) =>  {
 };
 
 export const SimpleCheckbox = Template.bind({})
-SimpleCheckbox.args = {label: "Some checkbox"}
-
-export const NoLabel = Template.bind({})
-NoLabel.args = {label: null, style: {marginRight: 0}}
-
-export const FunctionCheckbox = Template.bind({})
-FunctionCheckbox.args = {label: <div style={{fontFamily: "Roboto Mono"}}>revokeAdmin()</div>}

@@ -1,8 +1,8 @@
 import React from "react"
-import { GridProps, FormControlProps, FormControl, Input, InputLabel, StandardTextFieldProps } from "@material-ui/core"
+import { GridProps, StandardTextFieldProps, TextField as MUITextField } from "@material-ui/core"
 import classnames from "classnames"
 
-export interface TextFieldProps extends Omit<StandardTextFieldProps, "defaultValue" | "classes" | "onBlur" | "onChange" | "onFocus" | "variant" | "label">, FormControlProps {
+export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" | "label"> {
   label?: string
   borderStyle?: "double" | "single"
   append?: React.ReactElement | string
@@ -10,6 +10,7 @@ export interface TextFieldProps extends Omit<StandardTextFieldProps, "defaultVal
 }
 
 const TextField = ({
+  borderStyle = "single",
   InputProps,
   InputLabelProps,
   label,
@@ -18,25 +19,21 @@ const TextField = ({
   ...props
 }: TextFieldProps) => {
   return (
-    <FormControl
-      className={classnames(props.borderStyle === "double" ? "border--double" : undefined, props.className)}
+    <MUITextField
+      className={classnames(borderStyle === "double" ? "border--double" : undefined, props.className)}
+      focused={!props.disabled}
+      label={label}
+      placeholder={label}
+      InputProps={{
+        disableUnderline: true,
+        ...InputProps,
+      }}
+      InputLabelProps={{
+        shrink: true,
+        ...InputLabelProps,
+      }}
       {...props}
-    >
-      <InputLabel
-        disabled={props.disabled}
-        htmlFor="mui-input"
-        {...InputLabelProps}
-      >
-        {label}
-      </InputLabel>
-      <Input
-        id="mui-input"
-        placeholder={props.placeholder || label}
-        disabled={props.disabled}
-        disableUnderline
-        {...InputProps}
-      />
-    </FormControl>
+    />
   )
 }
 
