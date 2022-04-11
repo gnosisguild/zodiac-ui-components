@@ -2,7 +2,7 @@ name: Dev Continuous Deployment
 
 on:
   push:
-    branches: master
+    branches: main
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
         uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
         with:
           pin-name: Zodiac UI Components - Latest — ${ GITHUB_SHA }
-          path: './storybook-static'
+          path: "./storybook-static"
           pinata-api-key: ${{ secrets.PINATA_API_KEY }}
           pinata-secret-api-key: ${{ secrets.PINATA_API_SECRET_KEY }}
 
@@ -35,8 +35,8 @@ jobs:
       - name: Update DNS with new IPFS hash
         env:
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          RECORD_DOMAIN: 'gnosisguild.org'
-          RECORD_NAME: '_dnslink.ui.dev'
+          RECORD_DOMAIN: "gnosisguild.org"
+          RECORD_NAME: "_dnslink.ui.dev"
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         uses: textileio/cloudflare-update-dnslink@0fe7b7a1ffc865db3a4da9773f0f987447ad5848
         with:
