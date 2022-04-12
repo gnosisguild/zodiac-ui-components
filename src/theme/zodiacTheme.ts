@@ -214,6 +214,9 @@ const overrides: Overrides = {
   MuiFormControlLabel: {
     root: {
       marginLeft: 0,
+      "& .MuiCheckbox-root": {
+        marginRight: defaultTheme.spacing(1),
+      }
     },
   },
   MuiInputBase: {
