@@ -20,7 +20,6 @@ const TextField = ({
 }: TextFieldProps) => {
   return (
     <MUITextField
-      className={classnames(borderStyle === "double" ? "border--double" : undefined, props.className)}
       focused={!props.disabled}
       label={label}
       placeholder={label}
@@ -33,6 +32,7 @@ const TextField = ({
         ...InputLabelProps,
       }}
       {...props}
+      className={classnames(borderStyle === "double" ? "border--double" : undefined, props.className)}
     />
   )
 }

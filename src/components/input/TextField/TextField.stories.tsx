@@ -30,3 +30,16 @@ Search.args = {
     ),
   },
 }
+
+export const SearchDoubleBorder = Template.bind({})
+SearchDoubleBorder.args = {
+  borderStyle: "double",
+  placeholder: "Filter token list",
+  InputProps: {
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+  },
+}
