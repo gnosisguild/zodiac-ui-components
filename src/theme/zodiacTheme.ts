@@ -320,7 +320,6 @@ const overrides: Overrides = {
       },
       "& .MuiInputBase-root": {
         marginTop: 0,
-        minHeight: "37px",
       },
       "& .MuiInputBase-root input": {
         fontFamily: "Roboto Mono",
