@@ -47,8 +47,8 @@
   "peerDependencies": {
     "@gnosis.pm/safe-react-components": "^0.9.6",
     "@material-ui/core": "4.X.X",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "16.x.x || 17.x.x || 18.x.x",
+    "react-dom": "16.x.x || 17.x.x || 18.x.x"
   },
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
