@@ -9,7 +9,7 @@ export default {
   args: {
     icon: "zodiac",
     size: 100,
-  }
+  },
 } as Meta
 
 // Create a master template for mapping args to render the Badge Icon component
@@ -38,6 +38,11 @@ Reality.args = {
 export const Exit = Template.bind({})
 Exit.args = {
   icon: "exit",
+}
+
+export const Tellor = Template.bind({})
+Tellor.args = {
+  icon: "tellor",
 }
 
 export const Custom = Template.bind({})
