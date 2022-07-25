@@ -372,6 +372,18 @@ const zodiacTheme = createTheme({
   shadows,
   typography: {
     fontFamily: "Spectral",
+    h1: {
+      fontSize: 48,
+      fontWeight: "normal",
+    },
+    h2: {
+      fontSize: 40,
+      fontWeight: "normal",
+    },
+    h3: {
+      fontSize: 32,
+      fontWeight: "normal",
+    },
     h4: {
       fontSize: 24,
       fontWeight: "normal",
