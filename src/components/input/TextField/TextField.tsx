@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@material-ui/core"
 import HelpOutline from "@material-ui/icons/HelpOutline"
-import { colors } from "../../../theme/zodiacTheme"
 
 export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" | "label"> {
   label?: string
@@ -46,6 +45,8 @@ const useStyles = makeStyles({
     },
   },
   prefixStyles: {
+    color: "rgba(255,255,255,0.5)",
+    fontFamily: "Roboto Mono",
     margin: "0px 4px",
   },
   icon: {
