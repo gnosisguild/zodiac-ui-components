@@ -17,13 +17,13 @@ export const DoubleBorder = Template.bind({})
 DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
 
 export const CustomBorderColor = Template.bind({})
-DoubleBorder.args = { label: "Text filed label", borderStyle: "double", borderColor: "#fff" }
+CustomBorderColor.args = { label: "Text filed label", borderStyle: "double", borderColor: "#fff" }
 
 export const Prefix = Template.bind({})
-DoubleBorder.args = { label: "Text filed label", borderStyle: "double", prefix: "ETH" }
+Prefix.args = { label: "Text filed label", borderStyle: "double", prefix: "ETH" }
 
 export const Tooltip = Template.bind({})
-DoubleBorder.args = { label: "Text filed label", borderStyle: "double", tooltipMsg: "Test" }
+Tooltip.args = { label: "Text filed label", borderStyle: "double", tooltipMsg: "Test" }
 
 export const SingleBorder = Template.bind({})
 SingleBorder.args = { label: "Another label" }
