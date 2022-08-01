@@ -16,9 +16,6 @@ const Template: Story<TextFieldProps> = (args) => <TextField {...args} />
 export const DoubleBorder = Template.bind({})
 DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
 
-export const CustomBorderColor = Template.bind({})
-CustomBorderColor.args = { label: "Text filed label", borderStyle: "double", borderColor: "#fff" }
-
 export const Prefix = Template.bind({})
 Prefix.args = { label: "Text filed label", borderStyle: "double", prefix: "ETH" }
 

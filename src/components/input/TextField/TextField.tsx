@@ -9,37 +9,29 @@ import {
   Typography,
 } from "@material-ui/core"
 import HelpOutline from "@material-ui/icons/HelpOutline"
-
 export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" | "label"> {
   label?: string
   borderStyle?: "double" | "single"
   prefix?: string
-  borderColor?: string
   append?: React.ReactElement | string
   AppendProps?: GridProps
   tooltipMsg?: string
 }
 
-type TextFieldStyleProps = {
-  borderColor: string
-}
-
 const useStyles = makeStyles({
   singleBorder: {
-    "& .MuiInputBase-root": {
-      borderColor: (props: TextFieldStyleProps) => props.borderColor,
-    },
+    "& .MuiInputBase-root": {},
   },
   doubleBorder: {
     "& .MuiInputBase-root": {
       paddingLeft: 8,
-      borderColor: (props: TextFieldStyleProps) => props.borderColor,
+
       "&::before": {
         content: '""',
         position: "absolute",
         zIndex: 1,
         inset: 2,
-        border: (props: TextFieldStyleProps) => `1px solid ${props.borderColor}`,
+        border: "1px solid",
         pointerEvents: "none",
       },
     },
@@ -61,12 +53,11 @@ const TextField = ({
   label,
   append,
   AppendProps,
-  borderColor = "#fff",
   tooltipMsg,
   prefix,
   ...props
 }: TextFieldProps) => {
-  const { singleBorder, doubleBorder, prefixStyles, icon } = useStyles({ borderColor })
+  const { singleBorder, doubleBorder, prefixStyles, icon } = useStyles()
   return (
     <>
       {tooltipMsg && (
