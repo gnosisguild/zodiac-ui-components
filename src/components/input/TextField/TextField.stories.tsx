@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react/types-6-0"
 import { Story } from "@storybook/react"
 import TextField, { TextFieldProps } from "./TextField"
 import { InputAdornment } from "@material-ui/core"
-import SearchIcon from '@material-ui/icons/Search'
+import SearchIcon from "@material-ui/icons/Search"
 
 export default {
   title: "Components/Input/TextField",
@@ -15,6 +15,12 @@ const Template: Story<TextFieldProps> = (args) => <TextField {...args} />
 
 export const DoubleBorder = Template.bind({})
 DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
+
+export const Prefix = Template.bind({})
+Prefix.args = { label: "Text filed label", borderStyle: "double", prefix: "ETH" }
+
+export const Tooltip = Template.bind({})
+Tooltip.args = { label: "Text filed label", borderStyle: "double", tooltipMsg: "Test" }
 
 export const SingleBorder = Template.bind({})
 SingleBorder.args = { label: "Another label" }
