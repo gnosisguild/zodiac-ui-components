@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core"
-import HelpOutline from "@material-ui/icons/HelpOutline"
+import { HelpOutline } from "@material-ui/icons"
 export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" | "label"> {
   label?: string
   borderStyle?: "double" | "single"
@@ -16,6 +16,7 @@ export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" |
   append?: React.ReactElement | string
   AppendProps?: GridProps
   tooltipMsg?: string
+  tooltipIcon?: React.ReactNode
 }
 
 const useStyles = makeStyles({
@@ -55,6 +56,7 @@ const TextField = ({
   AppendProps,
   tooltipMsg,
   prefix,
+  tooltipIcon,
   ...props
 }: TextFieldProps) => {
   const { singleBorder, doubleBorder, prefixStyles, icon } = useStyles()

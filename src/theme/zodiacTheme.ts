@@ -37,7 +37,7 @@ export const colors = {
   },
   gray: {
     200: "rgba(105, 112, 117, 0.2)",
-  }
+  },
 }
 
 export const doubleBorder = (inset = 2, color = colors.tan[100]) => ({
@@ -68,32 +68,32 @@ palette.secondary = palette.augmentColor({
 })
 
 const averta = {
-  fontFamily: 'Averta',
+  fontFamily: "Averta",
   src: `local('Averta'), local('Averta Bold'), url(${avertaFont}) format('woff2'), url(${avertaBoldFont}) format('woff')`,
-};
+}
 const roboto = {
-  fontFamily: 'Roboto Mono',
+  fontFamily: "Roboto Mono",
   fontStyle: "normal",
   fontWeight: 400,
   src: `local(''), url(${RobotoMonoRegularWoff2}) format('woff2'), url(${RobotoMonoRegularWoff}) format('woff')`,
-};
+}
 const spectral = {
-  fontFamily: 'Spectral',
+  fontFamily: "Spectral",
   fontStyle: "normal",
   fontWeight: 400,
   src: `local(''), url(${SpectralRegularWoff2}) format('woff2'), url(${SpectralRegularWoff}) format('woff')`,
 }
 
-const defaultTheme = createTheme({palette});
+const defaultTheme = createTheme({ palette })
 
-const shadows = defaultTheme.shadows;
+const shadows = defaultTheme.shadows
 shadows[1] = "0px 2px 4px rgba(105, 112, 117, 0.2)"
 shadows[2] = "0px 4px 4px rgba(0, 0, 0, 0.25)"
 shadows[3] = "0px 4px 10px rgba(105, 112, 117, 0.2)"
 
 interface Overrides extends CoreOverrides {
-  MuiToggleButtonGroup?: Partial<Record<ToggleButtonGroupClassKey, CSSProperties | (() => CSSProperties)>> | undefined;
-  MuiToggleButton?: Partial<Record<ToggleButtonClassKey, CSSProperties | (() => CSSProperties)>> | undefined;
+  MuiToggleButtonGroup?: Partial<Record<ToggleButtonGroupClassKey, CSSProperties | (() => CSSProperties)>> | undefined
+  MuiToggleButton?: Partial<Record<ToggleButtonClassKey, CSSProperties | (() => CSSProperties)>> | undefined
 }
 
 const overrides: Overrides = {
@@ -104,8 +104,8 @@ const overrides: Overrides = {
         "--scrollbarWidth": "6px",
       },
       "@font-face": [averta, roboto, spectral],
-      "html": {
-        height: "100%"
+      html: {
+        height: "100%",
       },
       body: {
         margin: 0,
@@ -216,7 +216,7 @@ const overrides: Overrides = {
       marginLeft: 0,
       "& .MuiCheckbox-root": {
         marginRight: defaultTheme.spacing(1),
-      }
+      },
     },
   },
   MuiInputBase: {
@@ -300,7 +300,7 @@ const overrides: Overrides = {
   MuiSelect: {
     root: {
       borderColor: colors.tan[300],
-    }
+    },
   },
   MuiTableCell: {
     root: {
@@ -330,7 +330,7 @@ const overrides: Overrides = {
       },
       "&.border--double": {
         "&::before": {
-          content: "none"
+          content: "none",
         },
         "& .MuiInputBase-root": {
           paddingLeft: 8,
@@ -364,7 +364,7 @@ const overrides: Overrides = {
       border: `1px solid ${colors.tan[300]}`,
       "&::before": doubleBorder(-3),
     },
-  }
+  },
 }
 
 const zodiacTheme = createTheme({
