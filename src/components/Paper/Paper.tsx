@@ -7,23 +7,26 @@ export interface PaperProps extends MuiPaperProps {
   rounded?: "left" | "top" | "right" | "bottom" | "full"
 }
 
-const Paper = ({ borderStyle = "single", rounded, children, ...props }: PaperProps) => {
-  return (
-    <MUIPaper
-      {...props}
-      className={classnames(
-        borderStyle === "double" ? "border--double" : undefined,
-        rounded === "left" && "roundedLeft",
-        rounded === "top" && "roundedTop",
-        rounded === "right" && "roundedRight",
-        rounded === "bottom" && "roundedBottom",
-        rounded === "full" && "roundedFull",
-        props.className,
-      )}
-    >
-      {children}
-    </MUIPaper>
-  )
-}
+const Paper = React.forwardRef<typeof MUIPaper, PaperProps>(
+  ({ borderStyle = "single", rounded, children, ...props }, ref) => {
+    return (
+      <MUIPaper
+        {...props}
+        ref={ref}
+        className={classnames(
+          borderStyle === "double" ? "border--double" : undefined,
+          rounded === "left" && "roundedLeft",
+          rounded === "top" && "roundedTop",
+          rounded === "right" && "roundedRight",
+          rounded === "bottom" && "roundedBottom",
+          rounded === "full" && "roundedFull",
+          props.className,
+        )}
+      >
+        {children}
+      </MUIPaper>
+    )
+  },
+)
 
 export default Paper
