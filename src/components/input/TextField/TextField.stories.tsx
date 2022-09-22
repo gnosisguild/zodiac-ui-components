@@ -19,6 +19,9 @@ DoubleBorder.args = { label: "Text filed label", borderStyle: "double" }
 export const Prefix = Template.bind({})
 Prefix.args = { label: "Text filed label", borderStyle: "double", prefix: "ETH" }
 
+export const RightIcon = Template.bind({})
+RightIcon.args = { label: "Text filed label", borderStyle: "double", rightIcon: <SearchIcon /> }
+
 export const Tooltip = Template.bind({})
 Tooltip.args = { label: "Text filed label", borderStyle: "double", tooltipMsg: "Test" }
 

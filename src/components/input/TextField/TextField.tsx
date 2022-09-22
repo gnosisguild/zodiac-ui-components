@@ -17,6 +17,7 @@ export interface TextFieldProps extends Omit<StandardTextFieldProps, "variant" |
   AppendProps?: GridProps
   tooltipMsg?: string
   tooltipIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
 
 const useStyles = makeStyles({
@@ -57,9 +58,21 @@ const TextField = ({
   tooltipMsg,
   prefix,
   tooltipIcon,
+  rightIcon,
   ...props
 }: TextFieldProps) => {
   const { singleBorder, doubleBorder, prefixStyles, icon } = useStyles()
+
+  const handleAdornment = () => {
+    if (rightIcon) {
+      return rightIcon
+    }
+    if (prefix) {
+      return <Typography className={prefixStyles}>{prefix}</Typography>
+    }
+    return null
+  }
+
   return (
     <>
       {tooltipMsg && (
@@ -80,7 +93,7 @@ const TextField = ({
         placeholder={label}
         InputProps={{
           disableUnderline: true,
-          endAdornment: <>{prefix ? <Typography className={prefixStyles}>{prefix}</Typography> : ""}</>,
+          endAdornment: handleAdornment(),
           ...InputProps,
         }}
         InputLabelProps={{
