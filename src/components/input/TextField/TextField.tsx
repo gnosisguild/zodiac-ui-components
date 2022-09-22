@@ -70,7 +70,7 @@ const TextField = ({
     if (prefix) {
       return <Typography className={prefixStyles}>{prefix}</Typography>
     }
-    return ""
+    return null
   }
 
   return (
