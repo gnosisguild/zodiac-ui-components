@@ -4,8 +4,8 @@ import { CSSProperties } from "@material-ui/styles"
 import { ToggleButtonClassKey, ToggleButtonGroupClassKey } from "@material-ui/lab"
 import createPalette from "@material-ui/core/styles/createPalette"
 
-import avertaFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-normal.woff2"
-import avertaBoldFont from "@gnosis.pm/safe-react-components/dist/fonts/averta-bold.woff2"
+import avertaFont from "../assets/fonts/Averta/averta-normal.woff2"
+import avertaBoldFont from "../assets/fonts/Averta/averta-bold.woff2"
 
 import RobotoMonoRegularWoff from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff2"
 import RobotoMonoRegularWoff2 from "../assets/fonts/RobotoMono/roboto-mono-v13-latin-regular.woff"
