@@ -1227,10 +1227,10 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@gnosis.pm/safe-react-components@^0.9.6":
-  version "0.9.8"
-  resolved "https://registry.npmjs.org/@gnosis.pm/safe-react-components/-/safe-react-components-0.9.8.tgz"
-  integrity sha512-yOq7QScr+s27GTEsmBZe7fOXd5ADe4Wy4wlpu0crpsgyDmiJWl3H/K+ynLyq+dwGM6aVIAgFcIId2dEnwzdQew==
+"@gnosis.pm/safe-react-components@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-react-components/-/safe-react-components-1.2.0.tgz#25230eb23a40de15561a3fa12899ae8cd567bf5f"
+  integrity sha512-wMTrlbsBm+/uH7WacJGiJBMwZK+UiVjmPYbfm0LuqXV3bpzHvsjKmL5pQFeaku7rNOBst0XVG56T/SfnJDzrNQ==
   dependencies:
     react-media "^1.10.0"
     web3-utils "^1.6.0"

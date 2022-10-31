@@ -1,6 +1,6 @@
 {
   "name": "zodiac-ui-components",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "A shared UI component library for Gnosis Guild's Zodiac.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
-    "@gnosis.pm/safe-react-components": "^0.9.6",
+    "@gnosis.pm/safe-react-components": "^1.2.0",
     "@material-ui/core": "4.X.X",
     "@rollup/plugin-commonjs": "^21.0.2",
     "@rollup/plugin-image": "^2.1.1",
@@ -45,7 +45,7 @@
     "typescript": "^4.6.2"
   },
   "peerDependencies": {
-    "@gnosis.pm/safe-react-components": "^0.9.6",
+    "@gnosis.pm/safe-react-components": "1.x.x || 0.9.x",
     "@material-ui/core": "4.X.X",
     "react": "16.x.x || 17.x.x || 18.x.x",
     "react-dom": "16.x.x || 17.x.x || 18.x.x"
