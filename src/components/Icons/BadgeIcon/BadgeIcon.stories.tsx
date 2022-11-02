@@ -50,6 +50,11 @@ Tellor.args = {
   icon: "optimisticGov",
 }
 
+export const OzGov = Template.bind({})
+OzGov.args = {
+  icon: "ozGov",
+}
+
 export const Custom = Template.bind({})
 Custom.args = {
   icon: "custom",

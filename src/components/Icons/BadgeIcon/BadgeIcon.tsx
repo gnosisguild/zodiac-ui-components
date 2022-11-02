@@ -8,6 +8,7 @@ import reality from "../../../assets/images/reality-module-logo.png"
 import roles from "../../../assets/images/roles-module-logo.png"
 import tellor from "../../../assets/images/tellor-module-logo.png"
 import optimisticGov from "../../../assets/images/optimistic-governor-module-logo.png"
+import ozGov from "../../../assets/images/oz-governor-module-logo.png"
 import zodiac from "../../../assets/images/zodiac-app-logo.png"
 import { makeStyles } from "@material-ui/core"
 import classnames from "classnames"
@@ -45,6 +46,10 @@ const icons = {
     image: optimisticGov,
     alt: "Tellor Module icon",
   },
+  ozGov: {
+    image: ozGov,
+    alt: "OZ Governor Module icon",
+  },
   zodiac: {
     image: zodiac,
     alt: "Zodiac App icon",
@@ -69,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export type BadgeIconProps = {
-  icon: "bridge" | "reality" | "delay" | "roles" | "exit" | "tellor" | "optimisticGov" | "custom" | "zodiac"
+  icon: "bridge" | "reality" | "delay" | "roles" | "exit" | "tellor" | "optimisticGov" | "ozGov" | "custom" | "zodiac"
   size?: number
   className?: string
 }
