@@ -4,6 +4,7 @@ import BadgeIcon from "./components/Icons/BadgeIcon"
 import ZodiacPaper from "./components/Paper"
 import ZodiacModal from "./components/Modal"
 import ZodiacTextField from "./components/input/TextField"
+import ZodiacSlider from "./components/input/Slider"
 import { theme as gnosisStyledComponentsTheme } from "@gnosis.pm/safe-react-components" // must expose here, to make sure ita compilable with the current version of the zodiac-ui-components
 
 export {
@@ -16,4 +17,5 @@ export {
   zodiacMuiTheme,
   ZodiacPaper,
   ZodiacTextField,
+  ZodiacSlider,
 }
