@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Grid, Slider as MUISlider, SliderProps as MUISliderProps, makeStyles, Typography } from "@material-ui/core"
 import TextField from "../TextField"
 import { colors } from "../../../theme/zodiacTheme"
@@ -8,6 +8,7 @@ interface SliderProps extends MUISliderProps {
   hasInput?: boolean
   id?: string
   label?: string
+  onChangeSlider?: (value: number | string | Array<number | string>) => void
 }
 
 const useStyles = makeStyles(() => ({
@@ -41,24 +42,24 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const Slider = ({ hasInput, id, label, ...props }: SliderProps) => {
+const Slider = ({ hasInput, id, label, onChangeSlider, ...props }: SliderProps) => {
   const classes = useStyles()
 
   const min = props.min || 0
   const max = props.max || 100
 
   if (hasInput) {
-    const [value, setValue] = useState<number | string | Array<number | string>>(4)
+    const [value, setValue] = useState<number | string | Array<number | string>>(props.defaultValue ?? 4)
 
-    const handleSliderChange = (event: Event, newValue: number | number[]) => {
-      setValue(newValue)
+    const handleSliderChange = (_: Event, value: number | number[]) => {
+      setValue(value)
     }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value === "" ? "" : Number(event.target.value))
     }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       if ((event.key === "ArrowUp" || event.key === "ArrowRight") && typeof value == "number") {
         if (value < max) {
           setValue(Number(value) + 1)
@@ -78,6 +79,13 @@ const Slider = ({ hasInput, id, label, ...props }: SliderProps) => {
         setValue(max)
       }
     }
+
+    useEffect(() => {
+      if (onChangeSlider) {
+        onChangeSlider(value)
+      }
+    }, [onChangeSlider, value])
+
     return (
       <>
         {label && (
@@ -89,6 +97,7 @@ const Slider = ({ hasInput, id, label, ...props }: SliderProps) => {
           <Grid item className={classes.sliderGrid}>
             <Slider
               value={typeof value === "number" ? value : 0}
+              //@ts-ignore
               onChange={handleSliderChange}
               aria-labelledby={id}
               {...props}
@@ -100,7 +109,7 @@ const Slider = ({ hasInput, id, label, ...props }: SliderProps) => {
               value={value}
               onChange={handleInputChange}
               onBlur={handleBlur}
-              onKeyDown={handleKeyDown}
+              onKeyDown={(event) => handleKeyDown(event)}
             />
           </Grid>
         </Grid>

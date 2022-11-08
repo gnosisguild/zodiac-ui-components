@@ -17,7 +17,7 @@ export const SimpleSlider = (): SliderProps => (
 export const SliderWithInput = (): SliderProps => {
   return (
     <Box sx={{ width: 400 }}>
-      <Slider label="Slider label" id="slider" hasInput />
+      <Slider label="Slider label" id="slider" hasInput defaultValue={50} onChangeSlider={(e) => console.log(e)} />
     </Box>
   )
 }
