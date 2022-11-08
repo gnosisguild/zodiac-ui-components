@@ -20,3 +20,4 @@ export const SliderWithInput = (): SliderProps => {
       <Slider label="Slider label" id="slider" hasInput defaultValue={50} onChangeSlider={(e) => console.log(e)} />
     </Box>
   )
+}
