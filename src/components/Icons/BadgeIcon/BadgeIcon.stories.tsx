@@ -60,4 +60,9 @@ Custom.args = {
   icon: "custom",
 }
 
+export const Connext = Template.bind({})
+Connext.args = {
+  icon: "connext",
+}
+
 export const Zodiac = Template.bind({})
