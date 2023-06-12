@@ -1,6 +1,6 @@
 {
   "name": "zodiac-ui-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A shared UI component library for Gnosis Guild's Zodiac.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
